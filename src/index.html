@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../dist/output.css">
+  <title>Detect Browser</title>
+</head>
+
+<body class="flex justify-center items-center min-h-screen bg-black">
+  <div class="wrapper p-5 bg-white rounded-lg flex items-center">
+    <h2 class="mr-3 text-5xl">Browser: </h2>
+    <div class="logos flex">
+      <img class="chrome w-14 mx-2 opacity-30 transition-opacity ease-linear duration-500" src="img/chrome.png" alt="">
+      <img class="edge w-14 mx-2 opacity-30 transition-opacity ease-linear duration-500" src="img/edge.png" alt="">
+      <img class="firefox w-14 mx-2 opacity-30 transition-opacity ease-linear duration-500" src="img/firefox.png"
+        alt="">
+      <img class="opera w-14 mx-2 opacity-30 transition-opacity ease-linear duration-500" src="img/opera.png" alt="">
+      <img class="safari w-14 mx-2 opacity-30 transition-opacity ease-linear duration-500" src="img/safari.png" alt="">
+    </div>
+  </div>
+
+  <script>
+    let userAgent = navigator.userAgent;
+    let browser;
+
+    if (userAgent.match(/chrome|chromium|crios/i)) {
+      browser = "chrome";
+    } else if (userAgent.match(/firefox|fxios/i)) {
+      browser = "firefox";
+    } else if (userAgent.match(/safari/i)) {
+      browser = "safari";
+    } else if (userAgent.match(/opr\//i)) {
+      browser = "opera";
+    } else if (userAgent.match(/edg/i)) {
+      browser = "edge";
+    } else {
+      browser = "No browser detection";
+    }
+    const logo = document.querySelector(`.logos .${browser}`)
+    logo.classList.replace('opacity-30', 'opacity-100')
+  </script>
+</body>
+
+</html>
